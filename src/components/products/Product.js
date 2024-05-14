@@ -45,7 +45,7 @@ const productsArr = [
     },
 
     {
-    title: 'Album 3',
+    title: 'Album 5',
     
     price: 15.60,
     
@@ -54,7 +54,7 @@ const productsArr = [
     },
 
     {
-    title: 'Album 3',
+    title: 'Album 6',
     
     price: 25,
     
