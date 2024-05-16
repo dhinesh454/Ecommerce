@@ -1,123 +1,140 @@
-import React from "react";
+import {useContext} from "react";
 import CartModal from "./CartModal";
 import { Button, Modal } from "react-bootstrap";
-import classes from './Cart.module.css'
+import classes from './Cart.module.css';
+import CartContext from "../Store/CartContext";
 
 
-const cartElements = [
 
-    {
-    
-    title: 'Album 1',
-    
-    price: 100,
-    
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
-    
-    quantity: 2,
-    
-    },
-    
-    {
-    
-    title: 'Album 2',
-    
-    price: 50,
-    
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
-    
-    quantity: 3,
-    
-    },
-    
-    {
-    
-    title: 'Album 3',
-    
-    price: 70,
-    
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
-    
-    quantity: 1,
-    
-    } ,
 
-    {
+// const cartElements = [
+
+//     {
     
-        title: 'Album 4',
+//     title: 'Album 1',
+    
+//     price: 100,
+    
+//     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
+    
+//     quantity: 2,
+    
+//     },
+    
+//     {
+    
+//     title: 'Album 2',
+    
+//     price: 50,
+    
+//     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
+    
+//     quantity: 3,
+    
+//     },
+    
+//     {
+    
+//     title: 'Album 3',
+    
+//     price: 70,
+    
+//     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+    
+//     quantity: 1,
+    
+//     } ,
+
+//     {
+    
+//         title: 'Album 4',
         
-        price: 70,
+//         price: 70,
         
-        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+//         imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
         
-        quantity: 1,
+//         quantity: 1,
         
-        },
+//         },
 
-        {
+//         {
     
-            title: 'Album 5',
+//             title: 'Album 5',
             
-            price: 70,
+//             price: 70,
             
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+//             imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
             
-            quantity: 1,
+//             quantity: 1,
             
-            },
+//             },
 
 
-            {
+//             {
     
-                title: 'Album 6',
+//                 title: 'Album 6',
                 
-                price: 70,
+//                 price: 70,
                 
-                imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+//                 imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
                 
-                quantity: 1,
+//                 quantity: 1,
                 
-                },
+//                 },
 
 
-                {
+//                 {
     
-                    title: 'Album 7',
+//                     title: 'Album 7',
                     
-                    price: 70,
+//                     price: 70,
                     
-                    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+//                     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
                     
-                    quantity: 1,
+//                     quantity: 1,
                     
-                    },
+//                     },
 
-                    {
+//                     {
     
-                        title: 'Album 8',
+//                         title: 'Album 8',
                         
-                        price: 70,
+//                         price: 70,
                         
-                        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+//                         imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
                         
-                        quantity: 1,
+//                         quantity: 1,
                         
-                        }
+//                         }
     
-    ]
+//     ]
 
 const Cart = (props) => {
 
+    const cartCtx = useContext(CartContext);
+
+    const totalAmount =  `$${cartCtx.totalAmount.toFixed(2)}`;
+    const hasItems = cartCtx.items.length>0;
+
+    const cartItemRemoveHandler = (id) => {
+        cartCtx.removeItem(id)
+    }
+
+    const cartItemAddHandler = item =>{
+        cartCtx.addItem(item);
+    }
 
 
        const cartList = (<ul className={classes['cart-item']}>
        
-      { cartElements.map(item => <CartModal
+      { cartCtx.items.map(item => <CartModal
         key={item.title}
         title={item.title}
-        imageUrl={item.imageUrl}
+        imageUrl={item.imageurl}
         price={item.price}
-        quantity={item.quantity}
+        quantity={item.amount}
+        onRemove={cartItemRemoveHandler.bind(null,item.id)}
+        onAdd={cartItemAddHandler.bind(null,item)}
     
     />)}
         
@@ -141,14 +158,14 @@ const Cart = (props) => {
             
                 {cartList}
                 <div className="m-3 p-2 fs-3 fw-bold d-flex flex-row-reverse gap-4">
-                    <span>$200.00</span>
+                    <span>{totalAmount}</span>
                     <span> Total Amount</span>
                 </div>
             
             </Modal.Body>
             <Modal.Footer>
                 <Button variant='secondary' onClick={props.onhideCart}>Close</Button>
-                <Button variant='primary'>Purchase</Button> 
+                {hasItems &&<Button variant='primary'>Purchase</Button>} 
             </Modal.Footer>
         </Modal>
 

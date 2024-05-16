@@ -1,7 +1,8 @@
 
 
 import { Button, Image } from 'react-bootstrap';
-import classes from './CartModal.module.css'
+import classes from './CartModal.module.css';
+
 
 
 
@@ -15,18 +16,20 @@ const CartModal = props =>{
 
             <div className='d-flex flex-column'>
             <Image width={80} height={80} src={props.imageUrl} rounded/>
-            <span className='fw-bold m-2'>{props.title}</span>
+            <span className='fw-bold'>{props.title}</span>
             </div>
     
-            <div className='fw-bold mx-5'>
+            <div className='fw-bold mx-3'>
                 {price}
             </div>
-            
+            <div>
+            <span  className='fw-bold '>{`x ${props.quantity}`} </span> 
+            </div>
 
-            <div className={`d-flex gap-3 justify-content-centre ${classes.actions}`}>
-               <span  className='fw-bold mx-5'>{`x ${props.quantity}`} </span> 
-                <Button variant='primary'>+</Button>
-                <Button variant='danger'>-</Button>
+            <div className={`d-flex gap-2 justify-content-centre ${classes.actions}`}>
+
+                <Button onClick={props.onAdd} variant='primary'>+</Button>
+                <Button onClick={props.onRemove} variant='danger'>-</Button>
             </div>
 
             </section>

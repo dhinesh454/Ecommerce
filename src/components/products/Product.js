@@ -69,6 +69,7 @@ const Product = () => {
 
 const Products = productsArr.map((item)=>(
     <Productlist
+        id={item.title}
         key = {item.title}
         title ={item.title}
         price ={item.price}

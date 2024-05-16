@@ -4,6 +4,7 @@ import Navigation from './components/Navigation'
 import Header from './components/Header';
 import Product from './components/products/Product';
 import Cart from './components/Cart/Cart';
+import CartProvider from './components/Store/ContextProvider';
 
 
 function App() {
@@ -19,12 +20,12 @@ const handleHide = () => {
   setShowCart(false)
 }
   return (
-<div>
+<CartProvider>
  {ShowCart && <Cart onhideCart = {handleHide} show={ShowCart} />}
     <Navigation onshow={handleShow}/>
      <Header/>
     <Product/>
-</div>
+</CartProvider>
 
     // <div>
     
