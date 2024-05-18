@@ -1,0 +1,15 @@
+.footer{
+    background-color: rgb(16, 182, 237);
+    display: flex;
+ 
+    padding: 1rem;
+    justify-content: space-around;
+
+}
+
+.footer h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+    color: aliceblue;
+    text-align: center;
+}

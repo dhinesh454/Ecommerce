@@ -38,7 +38,7 @@ const cartReducer = (state,action)=> {
         return {
           items: updatedItems,
           totalAmount: updatedTotalAmount,
-          alertMessage:existingCartItem?'':`You Successfully Added the Product: ${action.item.title}`
+          alertMessage:existingCartItem?'':`You Successfully Added the Product: ${action.item.title}`  
         };
       }
 

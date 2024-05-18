@@ -1,0 +1,25 @@
+
+
+import { Image, Nav,Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import classes from './Footer.module.css'
+
+
+
+const Footer = () => {
+
+    return(
+        <div className={classes.footer}>
+        <Navbar.Brand><h1>The Generics</h1> </Navbar.Brand>
+        <Nav>
+            <Nav.Link  className="me-5" as={Link} to="https://www.youtube.com" ><span><Image width={30} height={30} src="https://t4.ftcdn.net/jpg/04/46/55/07/240_F_446550774_f7S7L4KayRzucfypzC23TntUmLQujx0D.jpg" rounded/></span></Nav.Link>
+            <Nav.Link  className="me-5" as={Link} to="https://open.spotify.com" ><span><Image width={30} height={30} src="data:image/png;base64,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" rounded/></span></Nav.Link>
+            <Nav.Link  className="me-5" as={Link} to="https://www.facebook.com/" ><span><Image width={30} height={30} src="https://png.pngtree.com/element_our/sm/20180515/sm_5afaf0c36298b.jpg" rounded/></span></Nav.Link>
+        </Nav>
+
+        </div>
+    )
+
+};
+
+export default Footer;

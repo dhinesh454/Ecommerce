@@ -2,7 +2,11 @@ import { useState,useEffect } from "react";
 import { Button, Container,Nav,Navbar,Badge } from "react-bootstrap";
 import CartContext from "./Store/CartContext";
 import { useContext } from "react";
-import classes from './Navigation.module.css'
+import classes from './Navigation.module.css';
+import { Link } from "react-router-dom";
+
+
+
 const Navigation = (props) =>{
     const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
     const cartCtx = useContext(CartContext);
@@ -35,11 +39,11 @@ const Navigation = (props) =>{
         <>
         <Navbar bg='dark' expand='lg' variant="dark">
         <Container >
-            <Navbar.Brand href='/'>E-Commerce</Navbar.Brand>
+            <Navbar.Brand as={Link} to="/" >E-Commerce</Navbar.Brand>
             <Nav>
-                <Nav.Link href="#" className="me-5">Home</Nav.Link>
-                <Nav.Link href="#" className="me-5">Store</Nav.Link>
-                <Nav.Link href="#" className="me-5">About</Nav.Link>
+                <Nav.Link  className="me-5" as={Link} to="/home" >Home</Nav.Link>
+                <Nav.Link  className="me-5" as={Link} to="/store" >Store</Nav.Link>
+                <Nav.Link  className="me-5" as={Link} to="/about" >About</Nav.Link>
             </Nav>
             
             <Button variant="danger" onClick={props.onshow} className={btnClasses}>Cart   
