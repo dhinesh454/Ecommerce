@@ -1,0 +1,6 @@
+.homesection {
+    flex-wrap: wrap;
+    width: 70%;
+    margin: auto;
+    padding: 1rem;
+}
