@@ -10,7 +10,7 @@ const HomeSection = () => {
 
         <section className="m-3 p-2">
             <h1 className="text-center fst-italic">TOURS</h1>
-            <Table className={`${classes.homesection} my-2 p-2`}>
+            <Table className={`${classes.homesection} my-2 p-2 `}>
             <tbody>
                 <tr className="d-flex flex-start text-left justify-content-between p-2">
                     <td>JUL16</td>

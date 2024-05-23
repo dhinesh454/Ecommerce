@@ -164,7 +164,7 @@ const Cart = (props) => {
             
             </Modal.Body>
             <Modal.Footer>
-                <Button variant='secondary' onClick={props.onhideCart}>Close</Button>
+                <Button variant='danger' onClick={props.onhideCart}>Close</Button>
                 {hasItems &&<Button variant='primary'>Purchase</Button>} 
             </Modal.Footer>
         </Modal>

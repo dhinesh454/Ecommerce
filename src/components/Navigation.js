@@ -41,9 +41,10 @@ const Navigation = (props) =>{
         <Container >
             <Navbar.Brand as={Link} to="/" >E-Commerce</Navbar.Brand>
             <Nav>
-                <Nav.Link  className="me-5" as={Link} to="/home" >Home</Nav.Link>
-                <Nav.Link  className="me-5" as={Link} to="/store" >Store</Nav.Link>
-                <Nav.Link  className="me-5" as={Link} to="/about" >About</Nav.Link>
+                <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/home" >Home</Nav.Link>
+                <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/store" >Store</Nav.Link>
+                <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/about" >About</Nav.Link>
+                <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/contact" >Contact</Nav.Link>
             </Nav>
             
             <Button variant="danger" onClick={props.onshow} className={btnClasses}>Cart   
