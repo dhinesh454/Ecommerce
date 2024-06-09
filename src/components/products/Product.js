@@ -65,23 +65,25 @@ const productsArr = [
     ]
 
 
-const Product = () => {
+const Product = (props) => {
 
-const Products = productsArr.map((item)=>(
+const Products = props.products.map((item)=>(
     <Productlist
-        id={item.title}
-        key = {item.title}
+        id={item.id}
+        key = {item.id}
         title ={item.title}
         price ={item.price}
         imageUrl={item.imageUrl}
 
     />
+
+   
 ))
 
 
     return (
 
-        <div className={classes.container}>
+        <div className={`${classes.container} text-unstyled mb-5 `}>
           {Products}
         </div>
              

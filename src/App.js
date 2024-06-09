@@ -1,8 +1,10 @@
-import {Route,Switch} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Main from './Main';
 import About from './navFiles/About';
 import Home from './navFiles/Home';
 import Contact from './navFiles/Contact';
+import CartProvider from './components/Store/ContextProvider';
+import ProductDetail from './components/products/ProductDetail';
 
 
 // const router = createBrowserRouter([
@@ -14,25 +16,29 @@ import Contact from './navFiles/Contact';
 function App() {
 
     return(
-      
-      <Switch>
-        <Route exact path='/'>
-          <Main/>
-        </Route>
+      <CartProvider>
+      <Router>
+        <Switch>
+          <Route exact path='/'>
+            <Main />
+          </Route>
+          <Route path='/about'>
+            <About />
+          </Route>
+          <Route path='/home'>
+            <Home />
+          </Route>
 
-        <Route path='/about'>
-          <About/>
-        </Route>
+          <Route path='/contact'>
+            <Contact />
+          </Route>
 
-        <Route path='/home'>
-          <Home/>
-        </Route>
-
-        <Route path='/contact'>
-           <Contact/>
-        </Route>
-
-      </Switch>
+          <Route path='/product/:productId'>
+            <ProductDetail/>
+          </Route>
+        </Switch>
+      </Router>
+    </CartProvider>
     )
 
 }
