@@ -1,0 +1,61 @@
+
+
+.auth {
+  width: 50%;
+  margin: 3rem auto;
+  padding: 2rem;
+  border-radius: 6px;
+  background-color: #eab36b;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+
+}
+
+.auth h1{
+    text-align: center;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-style: italic;
+}
+
+.control{
+    margin-bottom:0.5rem ;
+}
+
+.control label{
+    display: block;
+    font-weight: bold;
+    margin-bottom:0.5rem ;
+}
+
+.actions {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .actions Button {
+    cursor: pointer;
+    font: inherit;
+    background-color: #e3750d;
+    border: 1px solid #dc7c15;
+    border-radius: 4px;
+    padding: 0.5rem 2.5rem;
+  }
+  
+  .actions Button:hover {
+    background-color: #e3750d;
+    border-color: #e9810a;
+  }
+  
+  .actions .toggle {
+    margin-top: 1rem;
+    background-color: transparent;
+    color: #10100f;
+    border: none;
+    padding: 0.15rem 1.5rem;
+  }
+  
+  .actions .toggle:hover {
+    background-color: transparent;
+    color: #d9710f;
+  }

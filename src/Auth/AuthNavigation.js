@@ -1,13 +1,14 @@
-import { useState,useEffect } from "react";
+
 import { Button, Container,Nav,Navbar,Badge } from "react-bootstrap";
-import CartContext from "./Store/CartContext";
-import { useContext } from "react";
-import classes from './Navigation.module.css';
+import { useContext,useState,useEffect } from "react";
 import { Link } from "react-router-dom";
+import CartContext from "../components/Store/CartContext";
+import classes from './AuthNavigation.module.css'
 
 
 
-const Navigation = (props) =>{
+const AuthNavigation = (props) =>{
+
     const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
     const cartCtx = useContext(CartContext);
 
@@ -34,33 +35,25 @@ const Navigation = (props) =>{
           };
         }, [items]);
 
-
     return(
         <>
         <Navbar bg='dark' expand='lg' variant="dark">
         <Container >
             <Navbar.Brand as={Link} to="/" >E-Commerce</Navbar.Brand>
             <Nav>
-                <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/home" >Home</Nav.Link>
+                <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/" >Home</Nav.Link>
                 <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/store" >Store</Nav.Link>
                 <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/about" >About</Nav.Link>
                 <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/contact" >Contact</Nav.Link>
-     
             </Nav>
-            
+
             <Button variant="danger" onClick={props.onshow} className={btnClasses}>Cart   
     
-              <Badge bg="light" text="dark" className={`p-1 mx-2 ${classes.cartbadge}`}>
-                {CartItems}
-              </Badge>
-            </Button>
-
-            <Nav>
-                <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/profile" >Profile</Nav.Link>
-                <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/" >Logout</Nav.Link>
-                
-     
-            </Nav>
+            <Badge bg="light" text="dark" className={`p-1 mx-2 ${classes.cartbadge}`}>
+              {CartItems}
+            </Badge>
+          </Button>
+            
         </Container>
         </Navbar>
 
@@ -73,4 +66,4 @@ const Navigation = (props) =>{
 
 }
 
-export default Navigation;
+export default AuthNavigation;

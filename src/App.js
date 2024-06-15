@@ -5,6 +5,8 @@ import Home from './navFiles/Home';
 import Contact from './navFiles/Contact';
 import CartProvider from './components/Store/ContextProvider';
 import ProductDetail from './components/products/ProductDetail';
+import AuthenticationPage from './Auth/Pages/AuthenticationPage';
+import ProfilePage from './Auth/Pages/ProfilePage';
 
 
 // const router = createBrowserRouter([
@@ -20,6 +22,12 @@ function App() {
       <Router>
         <Switch>
           <Route exact path='/'>
+            <AuthenticationPage/>
+          </Route>
+          <Route exact path='/profile'>
+          <ProfilePage/>
+        </Route>
+          <Route exact path='/store'>
             <Main />
           </Route>
           <Route path='/about'>
@@ -39,7 +47,7 @@ function App() {
         </Switch>
       </Router>
     </CartProvider>
-    )
+  )
 
 }
 

@@ -29,7 +29,7 @@ const Productlist = (props) => {
     </Link>
     <Card.Body>
       <Card.Title>{props.title}</Card.Title>
-      <Card.Text>${props.price}</Card.Text>
+      <Card.Text>price ${props.price}</Card.Text>
       
     </Card.Body>
     
