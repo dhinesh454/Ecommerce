@@ -3,10 +3,10 @@ import classes from './UserProfile.module.css';
 import Navigation from "../components/Navigation";
 
 
-const UserProfile = () => {
+const UserProfile = (props) => {
     return(
         <>
-        <Navigation/>
+        <Navigation onshow={props.onshow}/>
         <section className={classes.profile}>
         <h1>Your User Profile</h1>
         <ProfileForm />

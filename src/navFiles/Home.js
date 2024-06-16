@@ -7,12 +7,12 @@ import classes from './Home.module.css';
 import HomeSection from "./HomeSection";
 
 
-const Home  = () => {
+const Home  = (props) => {
 
 
     return (
         <div>
-        <Navigation/>
+        <Navigation onshow={props.onshow}/>
         <Container fluid style={{backgroundColor:"lightgray"}}  className={`d-flex justify-content-center p-4 flex-column ${classes.home}`}>
             <h1 className="text-center">The Generics</h1>
             <div className="d-flex flex-column align-items-center">

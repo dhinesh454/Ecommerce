@@ -1,6 +1,6 @@
 
-import { Image,Button ,Card} from "react-bootstrap";
-import classes  from './Productlist.module.css';
+import { Button ,Card} from "react-bootstrap";
+
 import CartContext from "../Store/CartContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";

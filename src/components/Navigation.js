@@ -4,16 +4,18 @@ import CartContext from "./Store/CartContext";
 import { useContext } from "react";
 import classes from './Navigation.module.css';
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 
 
 const Navigation = (props) =>{
     const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
-    const cartCtx = useContext(CartContext);
+    const Ctx = useContext(CartContext);
+    const history = useHistory();
 
-    const {items} = cartCtx;
+    const {items} = Ctx;
 
-        let CartItems = cartCtx.items.reduce((currNum,item)=>{
+        let CartItems = Ctx.items.reduce((currNum,item)=>{
             return currNum + item.amount
         },0);
 
@@ -35,11 +37,18 @@ const Navigation = (props) =>{
         }, [items]);
 
 
+        const logoutHandler = () => {
+          Ctx.logout();
+          //optioanl i do myself next how to protect nav and routes
+          history.replace('/')
+        }
+
+
     return(
         <>
         <Navbar bg='dark' expand='lg' variant="dark">
         <Container >
-            <Navbar.Brand as={Link} to="/" >E-Commerce</Navbar.Brand>
+            <Navbar.Brand>E-Commerce</Navbar.Brand>
             <Nav>
                 <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/home" >Home</Nav.Link>
                 <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/store" >Store</Nav.Link>
@@ -48,18 +57,17 @@ const Navigation = (props) =>{
      
             </Nav>
             
-            <Button variant="danger" onClick={props.onshow} className={btnClasses}>Cart   
+            {Ctx.isLoggedIn && <Button variant="warning" onClick={props.onshow} className={btnClasses}>Cart   
     
               <Badge bg="light" text="dark" className={`p-1 mx-2 ${classes.cartbadge}`}>
                 {CartItems}
               </Badge>
-            </Button>
+            </Button>}
 
             <Nav>
-                <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/profile" >Profile</Nav.Link>
-                <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/" >Logout</Nav.Link>
-                
-     
+                {!Ctx.isLoggedIn && <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/" >Login</Nav.Link>}
+                {Ctx.isLoggedIn && <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/profile" >Profile</Nav.Link>}
+                {Ctx.isLoggedIn && <Button variant="danger" onClick={logoutHandler}>Logout</Button>}
             </Nav>
         </Container>
         </Navbar>

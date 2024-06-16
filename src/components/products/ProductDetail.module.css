@@ -3,11 +3,6 @@
 
 }
 
-.right{
- 
-}
-
-
 
 .span {
    display: flex;
@@ -47,3 +42,18 @@
     color: green;
     font-weight: 600;
 }
+
+
+
+.loading {
+    text-align: center;
+  justify-content: center;
+    color: #f0ece9;
+    font-size: 80px;
+    font-weight: 900;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG9TX8nLzZsoPn8sUN2Jv6qqfh9Qt7PPR53w&s');
+    background-size: cover;
+    background-clip:text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }

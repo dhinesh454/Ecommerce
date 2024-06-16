@@ -1,13 +1,17 @@
 import { Button, Form , Row, Col } from "react-bootstrap";
-import { useState , useRef } from "react";
-import classes from './AuthForm.module.css'
+import { useState , useRef , useContext } from "react";
+import classes from './AuthForm.module.css';
+import CartContext from "../components/Store/CartContext";
+import { useHistory } from "react-router-dom";
 
 
 
 const AuthForm = () =>{
-
+    const history = useHistory();
     const emailInputRef = useRef();
     const passwordInputRef = useRef();
+
+    const authCtx = useContext(CartContext)
 
     const [isLogin,setIsLogin] = useState(true);
     const [isLoading,setLoading]=useState(false)
@@ -50,7 +54,10 @@ const AuthForm = () =>{
         setLoading(false);
 
         if (res.ok) {
-            console.log(data);
+            authCtx.login(data.idToken);
+             
+            isLogin ? history.replace('/home') : history.replace('/')
+
         } else {
             // show error modal
             let errorMessage = 'Authentication failed';
@@ -61,13 +68,17 @@ const AuthForm = () =>{
             
         }
     } catch (err) {
-        alert(err);
+        alert(`authentication failed ${err}`);
         console.log(err)
     }
 };
 
    
 return    (
+    <div>
+
+    <h1 className={classes.text}>Welcome To E-Commerce Platform</h1>
+
     <section className={classes.auth}>
             <h1>{isLogin?'Login':'SignUp'}</h1>
         <Form onSubmit={submitHandler}>
@@ -100,6 +111,8 @@ return    (
           
         </Form>
     </section>
+
+    </div>
  
     
 )   

@@ -7,6 +7,8 @@ import CartProvider from './components/Store/ContextProvider';
 import ProductDetail from './components/products/ProductDetail';
 import AuthenticationPage from './Auth/Pages/AuthenticationPage';
 import ProfilePage from './Auth/Pages/ProfilePage';
+import { useState } from 'react';
+import Cart from './components/Cart/Cart';
 
 
 // const router = createBrowserRouter([
@@ -16,9 +18,19 @@ import ProfilePage from './Auth/Pages/ProfilePage';
 // ]);
 
 function App() {
+    const [ShowCart,setShowCart] = useState(false);
+
+    const handleShow = ()=>{
+      setShowCart(true)
+    }
+    
+    const handleHide = () => {
+      setShowCart(false)
+    }
 
     return(
       <CartProvider>
+      {ShowCart && <Cart onhideCart = {handleHide} show={ShowCart} />}
       <Router>
         <Switch>
           <Route exact path='/'>
@@ -28,21 +40,21 @@ function App() {
           <ProfilePage/>
         </Route>
           <Route exact path='/store'>
-            <Main />
+            <Main onshow={handleShow} />
           </Route>
           <Route path='/about'>
-            <About />
+            <About  onshow={handleShow} />
           </Route>
           <Route path='/home'>
-            <Home />
+            <Home   onshow={handleShow}/>
           </Route>
 
           <Route path='/contact'>
-            <Contact />
+            <Contact  onshow={handleShow} />
           </Route>
 
           <Route path='/product/:productId'>
-            <ProductDetail/>
+            <ProductDetail  onshow={handleShow}/>
           </Route>
         </Switch>
       </Router>

@@ -5,13 +5,12 @@ import { useState , useCallback, useEffect } from 'react';
 import Navigation from './components/Navigation'
 import Header from './components/Header';
 import Product from './components/products/Product';
-import Cart from './components/Cart/Cart';
+
 import Footer from './components/Footer/Footer';
 
 
-function Main() {
+function Main(props) {
 
-const [ShowCart,setShowCart] = useState(false);
 const [products,setProducts] = useState([]);
 
 
@@ -43,17 +42,10 @@ useEffect(()=>{
 },[fetchProductHandler])
 
 
-const handleShow = ()=>{
-  setShowCart(true)
-}
-
-const handleHide = () => {
-  setShowCart(false)
-}
   return (
   <>
-    {ShowCart && <Cart onhideCart = {handleHide} show={ShowCart} />}
-    <Navigation onshow={handleShow}/>
+  
+    <Navigation onshow={props.onshow}/>
      <Header/>
     <Product products={products}/>
     <Footer/>

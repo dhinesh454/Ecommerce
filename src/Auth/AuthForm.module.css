@@ -5,7 +5,7 @@
   margin: 3rem auto;
   padding: 2rem;
   border-radius: 6px;
-  background-color: #eab36b;
+  background-color: #bcbaee;
   box-shadow: 0 1px 4px rgba(0,0,0,0.2);
 
 }
@@ -36,15 +36,15 @@
   .actions Button {
     cursor: pointer;
     font: inherit;
-    background-color: #e3750d;
-    border: 1px solid #dc7c15;
+    background-color: #0c77e3;
+    border: 1px solid #e2bede;
     border-radius: 4px;
     padding: 0.5rem 2.5rem;
   }
   
   .actions Button:hover {
-    background-color: #e3750d;
-    border-color: #e9810a;
+    background-color: #0b0b0b;
+   color: aliceblue;
   }
   
   .actions .toggle {
@@ -57,5 +57,17 @@
   
   .actions .toggle:hover {
     background-color: transparent;
-    color: #d9710f;
+    color: #0a6cf5;
+  }
+
+  .text {
+    text-align: center;
+    color: #f0ece9;
+    font-size: 80px;
+    font-weight: 900;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG9TX8nLzZsoPn8sUN2Jv6qqfh9Qt7PPR53w&s');
+    background-size: cover;
+    background-clip:text;
+    -webkit-background-clip: text;
+    color: transparent;
   }

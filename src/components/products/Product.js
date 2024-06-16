@@ -2,67 +2,67 @@
 import classes from './Product.module.css';
 import Productlist from "./Productlist";
 
-const productsArr = [
+// const productsArr = [
 
-    {
+//     {
     
-    title: 'Album 1',
+//     title: 'Album 1',
     
-    price: 100,
+//     price: 100,
     
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
+//     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
     
-    },
+//     },
     
-    {
+//     {
     
-    title: 'Album 2',
+//     title: 'Album 2',
     
-    price: 50,
+//     price: 50,
     
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
+//     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
     
-    },
+//     },
     
-    {
+//     {
     
-    title: 'Album 3',
+//     title: 'Album 3',
     
-    price: 70,
+//     price: 70,
     
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+//     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
     
-    },
+//     },
     
-    {
+//     {
     
-    title: 'Album 4',
+//     title: 'Album 4',
     
-    price: 150,
+//     price: 150,
     
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
+//     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
     
-    },
+//     },
 
-    {
-    title: 'Album 5',
+//     {
+//     title: 'Album 5',
     
-    price: 15.60,
+//     price: 15.60,
     
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+//     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
     
-    },
+//     },
 
-    {
-    title: 'Album 6',
+//     {
+//     title: 'Album 6',
     
-    price: 25,
+//     price: 25,
     
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+//     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
     
-    }
+//     }
     
-    ]
+//     ]
 
 
 const Product = (props) => {

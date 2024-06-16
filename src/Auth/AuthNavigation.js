@@ -41,18 +41,19 @@ const AuthNavigation = (props) =>{
         <Container >
             <Navbar.Brand as={Link} to="/" >E-Commerce</Navbar.Brand>
             <Nav>
-                <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/" >Home</Nav.Link>
-                <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/store" >Store</Nav.Link>
-                <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/about" >About</Nav.Link>
-                <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/contact" >Contact</Nav.Link>
-            </Nav>
-
             <Button variant="danger" onClick={props.onshow} className={btnClasses}>Cart   
     
             <Badge bg="light" text="dark" className={`p-1 mx-2 ${classes.cartbadge}`}>
               {CartItems}
             </Badge>
           </Button>
+                <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/" >Home</Nav.Link>
+                <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/store" >Store</Nav.Link>
+                <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/about" >About</Nav.Link>
+               
+            </Nav>
+
+            
             
         </Container>
         </Navbar>

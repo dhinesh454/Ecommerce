@@ -3,12 +3,12 @@ import Navigation from "../components/Navigation";
 import AboutSection from "./AboutSection";
 import Footer from "../components/Footer/Footer";
 
-const About = () => {
+const About = (props) => {
 
         return(
                <>
                     
-                    <Navigation/>
+                    <Navigation onshow={props.onshow}/>
                     <Header/>
                     <AboutSection/>
                     <Footer/>

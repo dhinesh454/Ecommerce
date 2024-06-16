@@ -1,6 +1,7 @@
-import { useReducer,useEffect } from "react";
+import { useReducer,useEffect, useState } from "react";
 import CartContext from "./CartContext";
 import { Alert } from "react-bootstrap";
+
 
 const defaultCartState = {
     items:[],
@@ -83,6 +84,9 @@ const CartProvider = (props) => {
         defaultCartState
     );
 
+    const [token , setToken] = useState(null);
+    const userLoggedIn = !!token; 
+
     useEffect(() => {
       if (cartState.alertMessage !== '') {
           const timer = setTimeout(() => {
@@ -100,17 +104,26 @@ const CartProvider = (props) => {
         dispatchCartAction({type:'REMOVE' , id:id})
     }
 
-    // const closeAlertHandler = ()=>{
-    //   setShowAlert(false);
-    //   setAlertMessage("");
-    // }
+    const loginHandler = (token)=>{
+      setToken(token)
+    };
 
 
+    const logoutHandler = () => {
+      setToken(null);
+    }
+
+   
     const cartContext = {
         items:cartState.items,
         totalAmount:cartState.totalAmount,
         addItem:addItemToCartHandler,
-        removeItem:removeItemFromCartHandler
+        removeItem:removeItemFromCartHandler,
+        token:token,
+        isLoggedIn:userLoggedIn,
+        login:loginHandler,
+        logout:logoutHandler,
+
     }
 
     return(

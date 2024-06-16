@@ -2,11 +2,9 @@
     background-color: rgb(16, 182, 237);
     width: 100%;
     display: flex;
-    position: fixed;
     bottom: 0;
     padding: 0.25rem;
     justify-content: space-around;
-    margin-top: 10rem;
 
 }
 

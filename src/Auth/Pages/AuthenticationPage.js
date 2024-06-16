@@ -1,12 +1,12 @@
 
 import AuthForm from "../AuthForm";
-import AuthNavigation from "../AuthNavigation";
+import Navigation from "../../components/Navigation";
 import classes from '../Authentication.module.css'
 const AuthenticationPage = () => {
 
     return(
         <div className={classes.body}>
-            <AuthNavigation/>
+            <Navigation/>
             <AuthForm/>
         </div>
     )   

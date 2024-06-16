@@ -1,7 +1,6 @@
 import { useEffect ,useState } from "react";
 import { Image,Button, Badge } from "react-bootstrap";
 import Navigation from "../Navigation";
-import Footer from "../Footer/Footer";
 import classes from './ProductDetail.module.css'
 import { useParams } from "react-router-dom";
 import { FaIndianRupeeSign } from "react-icons/fa6";
@@ -15,7 +14,7 @@ import { FaMapLocation } from "react-icons/fa6";
 // import CartContext from "../Store/CartContext";
 // import { useContext } from "react";
 
-const ProductDetail = () => {
+const ProductDetail = (props) => {
     const [product,setProduct]= useState(null);
     
     
@@ -37,15 +36,15 @@ const ProductDetail = () => {
 
     useEffect(()=>{
         fetchproduct();
-    },[])
+    })
 
-   if(!product) return <p>Loading....</p>
+   if(!product) return <p className={classes.loading}>Loading....</p>
 
     return(
            
         
         <div>
-       <Navigation/>   
+        <Navigation onshow={props.onshow}/>
     
        <div className={`"m-1 p-2 float-start hv-100" ${classes.float}`}>
         <Image width={250} height={1050} src={product.imageUrl} thumbnail/>

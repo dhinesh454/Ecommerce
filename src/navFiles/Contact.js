@@ -5,7 +5,7 @@ import Footer from "../components/Footer/Footer";
 
 
 
-const Contact = () => {
+const Contact = (props) => {
 
     const emailIdRef = useRef();  
     const phonedRef = useRef();
@@ -58,7 +58,8 @@ const Contact = () => {
     return(
 
         <div>
-            <Navigation/>
+
+        <Navigation onshow={props.onshow}/>
       
         <Form className="m-5 p-2 fw-bold" onSubmit={contactPostHandler}>
             <h1 className="text-center m-2 p-2 fst-italic">Contact Us</h1>
