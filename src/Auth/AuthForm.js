@@ -54,9 +54,15 @@ const AuthForm = () =>{
         setLoading(false);
 
         if (res.ok) {
+          
             authCtx.login(data.idToken);
-             
-            isLogin ? history.replace('/home') : history.replace('/')
+
+            if(isLogin){
+                history.replace('/') 
+            } else {
+                history.replace('/login');
+            }
+            
 
         } else {
             // show error modal

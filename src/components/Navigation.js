@@ -50,7 +50,7 @@ const Navigation = (props) =>{
         <Container >
             <Navbar.Brand>E-Commerce</Navbar.Brand>
             <Nav>
-                <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/home" >Home</Nav.Link>
+                <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/" >Home</Nav.Link>
                 <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/store" >Store</Nav.Link>
                 <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/about" >About</Nav.Link>
                 <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/contact" >Contact</Nav.Link>
@@ -65,7 +65,7 @@ const Navigation = (props) =>{
             </Button>}
 
             <Nav>
-                {!Ctx.isLoggedIn && <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/" >Login</Nav.Link>}
+                {!Ctx.isLoggedIn && <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/login" >Login</Nav.Link>}
                 {Ctx.isLoggedIn && <Nav.Link  className="me-5 cursor-pointer" as={Link} to="/profile" >Profile</Nav.Link>}
                 {Ctx.isLoggedIn && <Button variant="danger" onClick={logoutHandler}>Logout</Button>}
             </Nav>

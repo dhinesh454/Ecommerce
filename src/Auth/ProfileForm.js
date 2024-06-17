@@ -29,7 +29,8 @@ const ProfileForm = () => {
           const data = await res.json();
           if(res.ok){
             alert('Successfully Changed Login!..');
-            history.replace('/');
+            Ctx.logout();
+            history.replace('/login');
           }
           else{
             console.log(data,data.error.message);
