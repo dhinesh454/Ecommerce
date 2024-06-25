@@ -19,6 +19,8 @@ const Navigation = (props) =>{
             return currNum + item.amount
         },0);
 
+        console.log(items)
+
         const btnClasses = `${classes.button} ${btnIsHighlighted ? classes.bump : ''}`;
 
         useEffect(() => {
@@ -36,8 +38,8 @@ const Navigation = (props) =>{
           };
         }, [items]);
 
-
         const logoutHandler = () => {
+          Ctx.clearCart()
           Ctx.logout();
           //optioanl i do myself next how to protect nav and routes
           history.replace('/')

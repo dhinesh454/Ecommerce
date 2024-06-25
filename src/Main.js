@@ -14,6 +14,7 @@ function Main(props) {
 const [products,setProducts] = useState([]);
 
 
+
 const  fetchProductHandler =useCallback(async()=>{
   try {
     const response = await fetch('https://ecommerce-5696a-default-rtdb.firebaseio.com/product.json');

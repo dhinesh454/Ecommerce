@@ -19,6 +19,9 @@ const AuthForm = () =>{
         setIsLogin((prevState) => !prevState);
       };
 
+
+     
+
     const submitHandler = async(event) =>{
         event.preventDefault();
 
@@ -55,9 +58,11 @@ const AuthForm = () =>{
 
         if (res.ok) {
           
-            authCtx.login(data.idToken);
+            
 
             if(isLogin){
+                authCtx.login(data.idToken);
+                localStorage.setItem('localId',data.localId)
                 history.replace('/') 
             } else {
                 history.replace('/login');

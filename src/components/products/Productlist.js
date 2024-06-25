@@ -12,6 +12,7 @@ const Productlist = (props) => {
 
    const addToCartHandler = () => {
      cartCtx.addItem({
+      key:props.id,
       id:props.id,
       title:props.title,
       amount:1,
